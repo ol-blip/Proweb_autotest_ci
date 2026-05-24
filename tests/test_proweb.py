@@ -4,6 +4,8 @@ from time import sleep
 from pages.auth_page import AuthPage
 from pages.home_page import HomePage
 from pages.lessons_page import LessonsPage
+from pages.coworking_page import CoworkingPage
+
 
 
 def test_chrome(driver_chrome):
@@ -134,6 +136,40 @@ def test_edge(driver_edge):
     lessons_page.click_fullscreen_exit()
     time.sleep(2)
     lessons_page.click_btn_back()
+    time.sleep(2)
+    home_page.click_page_coworking()
+    time.sleep(2)
+
+    coworking_page = CoworkingPage(driver_chrome)
+    coworking_page.click_enroll()
+    time.sleep(2)
+    coworking_page.click_branch_page()
+    time.sleep(2)
+    coworking_page.click_btn_choose()
+    time.sleep(2)
+    coworking_page.click_btn_date()
+    time.sleep(2)
+    coworking_page.click_group()
+    time.sleep(2)
+    coworking_page.click_btn_radio()
+    time.sleep(2)
+    coworking_page.click_btn_choose()
+    time.sleep(2)
+    coworking_page.click_time_choose()
+    time.sleep(2)
+    coworking_page.click_btn_time()
+    time.sleep(2)
+    coworking_page.click_place_choose()
+    time.sleep(2)
+    coworking_page.click_btn_radio_place()
+    time.sleep(2)
+    coworking_page.click_select_place()
+    time.sleep(2)
+    coworking_page.click_send()
+    time.sleep(2)
+    coworking_page.click_cancel_coworking()
+    time.sleep(2)
+    coworking_page.click_btn_confirm_cancel()
     time.sleep(2)
 
     home_page.click_profile_icon()
