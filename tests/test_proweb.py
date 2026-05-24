@@ -3,6 +3,7 @@ from time import sleep
 
 from pages.auth_page import AuthPage
 from pages.home_page import HomePage
+from pages.homework_page import HomeworkPage
 from pages.lessons_page import LessonsPage
 from pages.coworking_page import CoworkingPage
 
@@ -42,6 +43,43 @@ def test_chrome(driver_chrome):
     home_page.click_group_card()
     time.sleep(2)
 
+def test_chrome(driver_chrome):
+    driver_chrome.get("https://my.proweb.uz/log-in?q=/home")
+    auth_page = AuthPage(driver_chrome)
+    auth_page.enter_login("998999903769")
+    time.sleep(2)
+    auth_page.click_btn_login()
+    time.sleep(2)
+    auth_page.enter_password("170995ko")
+    time.sleep(2)
+    auth_page.click_btn_submit()
+    time.sleep(2)
+    try:
+        auth_page.click_btn_session()
+        time.sleep(2)
+        auth_page.click_btn_finish()
+    except:
+        pass
+    home_page = HomePage(driver_chrome)
+    home_page.click_group_card()
+    time.sleep(2)
+    homework_page = HomeworkPage(driver_chrome)
+    homework_page.click_homework()
+    time.sleep(2)
+    homework_page.click_last_done_homework()
+    time.sleep(2)
+    homework_page.click_press_to_hw()
+    time.sleep(5)
+    homework_page.click_btn_message()
+    time.sleep(2)
+    homework_page.enter_enter_message("test")
+    time.sleep(2)
+    homework_page.click_btn_send()
+    time.sleep(2)
+    homework_page.click_back()
+    time.sleep(2)
+
+
     lessons_page = LessonsPage(driver_chrome)
     lessons_page.click_lessons()
     time.sleep(2)
@@ -60,6 +98,7 @@ def test_chrome(driver_chrome):
     lessons_page.click_btn_back()
     time.sleep(2)
 
+    home_page = HomePage(driver_chrome)
     home_page.click_profile_icon()
     time.sleep(2)
     home_page.click_btn_exit()
